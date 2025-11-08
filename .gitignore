@@ -1,0 +1,15 @@
+# Ignorar datasets y audios
+datos/
+*.wav
+*.npy
+*.zip
+*.h5
+*.keras
+
+# Archivos temporales
+__pycache__/
+*.pyc
+
+# Configuración local
+.vscode/
+.idea/
