@@ -7,6 +7,7 @@ import sounddevice as sd
 from scipy.io.wavfile import write
 import tempfile
 import os
+import time
 
 # =========================
 # Configuración del modelo
@@ -149,4 +150,8 @@ with tab2:
             except Exception as e:
                 st.error(f"Ocurrió un error al procesar el archivo: {e}")
             finally:
-                os.remove(tmpfile.name)
+                try:
+                    time.sleep(1)  # da 1 segundo para liberar el archivo
+                    os.remove(tmpfile.name)
+                except PermissionError:
+                    pass  # si sigue en uso, simplemente lo ignora
